@@ -1,0 +1,15 @@
+[package]
+name = "dms-cli"
+description = "Command-line validator for AWS DMS table-mapping JSON"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "dms-validate"
+path = "src/main.rs"
+
+[dependencies]
+dms-core = { path = "../dms-core" }
+serde_json = { workspace = true }

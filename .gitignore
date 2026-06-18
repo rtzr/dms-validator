@@ -1,0 +1,22 @@
+# Rust
+/target
+
+# Node / frontend
+node_modules
+/dist
+
+# Tauri generated (schemas etc.)
+src-tauri/gen
+
+# Secrets / local env (defensive — keep credentials out of the repo)
+.env
+.env.*
+!.env.example
+
+# Editors / OS
+.idea/
+*.swp
+.DS_Store
+
+# misc
+*.log

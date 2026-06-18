@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "explicit-with-wildcard",
+      "rule-action": "explicit",
+      "object-locator": { "schema-name": "HR", "table-name": "emp%" }
+    },
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "bad-filter",
+      "rule-action": "exclude",
+      "object-locator": { "schema-name": "HR", "table-name": "audit" },
+      "filters": [
+        {
+          "filter-type": "source",
+          "column-name": "id",
+          "filter-conditions": [
+            { "filter-operator": "more", "value": "5" },
+            { "filter-operator": "between", "value": "10" }
+          ]
+        }
+      ]
+    },
+    {
+      "rule-type": "transformation",
+      "rule-id": "3",
+      "rule-name": "bad-cast",
+      "rule-action": "change-data-type",
+      "rule-target": "table",
+      "object-locator": { "schema-name": "HR", "table-name": "employees" },
+      "data-type": { "type": "varchar2" }
+    },
+    {
+      "rule-type": "table-settings",
+      "rule-id": "4",
+      "rule-name": "ts-wildcard",
+      "object-locator": { "schema-name": "HR", "table-name": "ord%" },
+      "lob-settings": { "mode": "limited", "bulk-max-size": 0 }
+    }
+  ]
+}
